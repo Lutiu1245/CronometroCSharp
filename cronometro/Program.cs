@@ -10,6 +10,7 @@
         {
             Console.WriteLine("S - Segundos -> 10s = 10 segundos");
             Console.WriteLine("M - Minutos -> 1m = 1 minuto");
+            Console.WriteLine("R - Regressiva");
             Console.WriteLine("0 - Sair");
             string data = Console.ReadLine().ToLower();
             char type = char.Parse(data.Substring(data.Length - 1, 1));
@@ -26,6 +27,8 @@
                 multiplicador = 1;
             if (type == 'm')
                 multiplicador = 60;
+            if (type == 'r')
+                Regressive(contador * multiplicador);
             Start(contador * multiplicador);
         }
         static void Start(int contador)
@@ -37,6 +40,19 @@
                 contadorAtual++;
                 Console.WriteLine(contadorAtual);
                 Thread.Sleep(1000);
+            }
+            Console.WriteLine("Fim!");
+            Menu();
+        }
+        static void Regressive(int contador)
+        {
+            int contadorAtual = 0;
+            while (contadorAtual != contador)
+            {
+                Console.Clear();
+                Console.WriteLine(contador);
+                Thread.Sleep(1000);
+                contador--;
             }
             Console.WriteLine("Fim!");
             Menu();
